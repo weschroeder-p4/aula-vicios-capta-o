@@ -120,17 +120,14 @@ section{padding:112px 0}
 /* ===== 01 HERO ===== */
 .hero{position:relative;overflow:hidden;padding:72px 0 104px;color:#fff;background:radial-gradient(ellipse 60% 75% at 82% 45%,rgba(30,99,243,.38),transparent 65%),linear-gradient(180deg,#1F1F1F 0%,#171717 100%)}
 .hero .container{display:grid;grid-template-columns:56fr 44fr;gap:64px;align-items:center}
-.ao-vivo{display:inline-flex;align-items:center;gap:10px;padding:8px 16px 8px 12px;border-radius:999px;background:rgba(30,99,243,.16);border:1px solid rgba(30,99,243,.55);font-size:14px;font-weight:600;color:#DCE6FD;margin-bottom:28px}
-.ao-vivo i{position:relative;width:10px;height:10px;border-radius:50%;background:#5B8CFF}
-.ao-vivo i::after{content:"";position:absolute;inset:0;border-radius:50%;background:#5B8CFF;animation:pulso 2s ease-out infinite}
-@keyframes pulso{0%{transform:scale(1);opacity:.8}100%{transform:scale(2.8);opacity:0}}
+.ao-vivo{font-size:16px;font-weight:600;color:#8FB0FF;margin:0 0 20px}
 .hero h1{font-size:56px;font-weight:800;letter-spacing:-.03em;max-width:640px}
 .hero-sub{margin-top:24px;font-size:19px;color:#D6D3CE;max-width:560px}
-.agenda{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;margin:36px 0 0;padding:0;list-style:none;border:1px solid rgba(255,255,255,.12);border-radius:16px;background:rgba(255,255,255,.03);max-width:600px}
-.agenda li{display:flex;align-items:center;gap:12px;padding:18px 20px;font-size:15px;line-height:1.35;color:#B9B6B0}
+.agenda{display:grid;grid-template-columns:repeat(3,minmax(0,auto));justify-content:start;width:fit-content;max-width:100%;margin:36px 0 0;padding:0;list-style:none;border:1px solid rgba(255,255,255,.12);border-radius:16px;background:rgba(255,255,255,.03)}
+.agenda li{display:flex;align-items:center;gap:12px;padding:18px;min-width:0;font-size:15px;line-height:1.35;color:#B9B6B0}
 .agenda li+li{border-left:1px solid rgba(255,255,255,.12)}
-.agenda li>span{white-space:nowrap}
-.agenda strong{display:block;color:#fff;font-family:var(--sora);font-weight:700;font-size:17px;letter-spacing:-.01em}
+.agenda li>span{min-width:0}
+.agenda strong{display:block;white-space:nowrap;color:#fff;font-family:var(--sora);font-weight:700;font-size:17px;letter-spacing:-.01em}
 .agenda svg{flex:none;width:26px;height:26px;stroke:#5B8CFF;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .hero .acao{margin-top:32px}
 .hero .micro{color:#B9B6B0}
@@ -203,12 +200,13 @@ section{padding:112px 0}
 .rodape a:hover{color:#fff;text-decoration:underline}
 
 /* ===== RESPONSIVO ===== */
+@media (max-width:1200px){
+  .hero .agenda{grid-template-columns:1fr;width:100%;max-width:420px}
+  .hero .agenda li+li{border-left:0;border-top:1px solid rgba(255,255,255,.12)}
+}
 @media (max-width:1100px){
   .hero h1{font-size:46px}
   .hero .container{gap:48px}
-  .agenda{grid-template-columns:1fr;max-width:420px}
-  .agenda li+li{border-left:0;border-top:1px solid rgba(255,255,255,.12)}
-  .cta-final .agenda li+li{border-top-color:rgba(255,255,255,.35)}
   .professor-grid{gap:56px}
 }
 @media (max-width:880px){
@@ -222,8 +220,8 @@ section{padding:112px 0}
   .hero .container{grid-template-columns:1fr;gap:44px}
   .hero h1{font-size:34px}
   .hero-sub{font-size:16px;margin-top:18px}
-  .ao-vivo{margin-bottom:22px;font-size:13px}
-  .agenda{max-width:none;margin-top:28px}
+  .ao-vivo{margin-bottom:16px;font-size:14px}
+  .agenda{max-width:none;width:100%;margin-top:28px}
   .agenda li{padding:14px 18px}
   .btn{width:100%;padding:0 18px;font-size:15px;gap:10px}
   .micro{font-size:14px}
@@ -253,7 +251,8 @@ section{padding:112px 0}
   .cta-final .moldura::before{border-radius:20px}
   .cta-final h2{font-size:31px}
   .cta-final .texto{font-size:16px}
-  .cta-final .agenda{width:100%}
+  .cta-final .agenda{width:100%;grid-template-columns:1fr}
+  .cta-final .agenda li+li{border-left:0;border-top:1px solid rgba(255,255,255,.35)}
 }
 @media (max-width:380px){
   .hero h1{font-size:30px}
@@ -285,7 +284,7 @@ section{padding:112px 0}
 <section class="hero escuro">
   <div class="container">
     <div>
-      <p class="ao-vivo"><i aria-hidden="true"></i>Aula gratuita e ao vivo | 07 de dezembro</p>
+      <p class="ao-vivo">Aula gratuita e ao vivo | 07 de dezembro</p>
       <h1>Por que você não consegue parar, mesmo sabendo que aquilo te faz mal?</h1>
       <p class="hero-sub">Descubra o que a ciência revela sobre os mecanismos por trás dos vícios e aprenda 5 passos práticos para começar a mudar comportamentos que você não consegue controlar.</p>
 
